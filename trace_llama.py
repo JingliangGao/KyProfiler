@@ -9,9 +9,12 @@ import uuid
 import numpy as np
 from bcc import BPF, PerfType, PerfHWConfig
 from utils.json import read_from_json
+import numpy as np
+import pandas as pd
+import uuid
+
 # import tracemalloc
 # import resource
-
 # from utils.cpufreq import lock_cpu_freq, restore_state
 
 MAX_NUM_OPS = 128
@@ -27,11 +30,6 @@ def timeout_handler(signum, frame):
 
 def convert_to_uuid(raw_data):
     return uuid.UUID(bytes=bytes(raw_data))
-
-
-import numpy as np
-import pandas as pd
-import uuid
 
 
 def store_to_dataframe_flatten(

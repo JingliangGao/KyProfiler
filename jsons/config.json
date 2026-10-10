@@ -4,11 +4,11 @@
         "dir": "experiments"
     },
     "llama-cli":{
-        "model_path": "/mnt/playground/gguf_models/llama-3.2-1B-Instruct.gguf",
+        "model_path": "${GGUF_FILE}",
         "sched_fifo": false,
         "model": "llama3.2-1B",
         "n_threads":2,
-        "work_dir": "/home/workspace/llama.cpp/build/bin",
+        "work_dir": "${LLAMA_BIN_DIR}",
         "cpu_ids": [6, 7],
         "no-cnv": true,
         "ngl": 0,
@@ -19,10 +19,10 @@
         
     },
     "trace": {
-        "lib_llama": "../../build/bin/llama-cli",
-        "lib_llama_dyn": "../../build/bin/libllama.so",
-        "lib_ggml_dyn_base": "../../build/bin/libggml-base.so",
-        "lib_ggml_dyn_cpu": "../../build/bin/libggml-cpu.so",
+        "lib_llama": "${LLAMA_BIN_DIR}/llama-cli",
+        "lib_llama_dyn": "${LLAMA_BIN_DIR}/libllama.so",
+        "lib_ggml_dyn_base": "${LLAMA_BIN_DIR}/libggml-base.so",
+        "lib_ggml_dyn_cpu": "${LLAMA_BIN_DIR}/libggml-cpu.so",
         "lib_ggml_dyn_acc": "",
         "lib_c": "/lib/aarch64-linux-gnu/libc.so.6",
         "activated_funcs_llama": ["llama_decode"],
@@ -55,7 +55,7 @@
         "perf_type": "raw",
         "raw_config": "l1d_cache",
         "c_src_path": "trace_mem.c",
-        "lib_path": "../build/bin/tinymembench"
+        "lib_path": "${LLAMA_BIN_DIR}/tinymembench"
     },
     "func_count": {
         "parent_func": "llama_decode",
